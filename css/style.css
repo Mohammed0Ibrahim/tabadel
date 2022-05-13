@@ -580,7 +580,7 @@ header div.menu.full-width span {
 .about .container .discription h2 {
   font-weight: bold;
   font-size: 2.5em;
-  margin: 20px 0 60px;
+  margin: 20px 0 20px;
   color: white;
   position: relative;
 }
@@ -611,7 +611,7 @@ header div.menu.full-width span {
   height: 100%;
   width: 100%;
 }
-@media (max-width: 676px) {
+@media (max-width: 992px) { 
   .about .container {
     flex-direction: column;
     height: auto;
@@ -622,9 +622,11 @@ header div.menu.full-width span {
    .about .container .swiper-wrapper {
     height: 300px;
    }
+}
+@media (max-width: 676px) {
    .about .container .swiper-button-prev::after,
   .about .container .swiper-button-next::after {
-  opacity: 1;
+  display: none;
 }
 }
 /* end about */
@@ -636,35 +638,38 @@ header div.menu.full-width span {
 }
 .services .container {
   display: grid;
-  grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+  grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
   gap: 50px;
   /* display: flex;
   flex-wrap: wrap;
   justify-content: center; */
 }
+@media (max-width: 676px) {
+  .services .container {
+    grid-template-columns: repeat(auto-fill,minmax(2500px,1fr));
+} }
 .services .container .box {
   text-align: center;
   background-color: var(--second-color);
   padding: 20px 10px;
   position: relative;
+  border-radius: 10px;
 }
-.services .container .box:hover:before,
+/* .services .container .box:hover:before,
 .services .container .box:hover::after {
   width: 100px;
   transform: translate(0);
-}
-.services .container .box::before,
+} */
+/* .services .container .box::before,
 .services .container .box::after {
     content: '';
-    /* border: 10px solid; */
-    /* border-color: transparent var(--second-color) transparent transparent; */
     position: absolute;
     background-color: var(--second-color);
     top: 0;
     width: 0;
     height: 100%;
     transition-duration: .5s;
-}
+} */
 .services .container .box::before {
   transform: translateX(20px);
   left: -20px;
@@ -677,26 +682,34 @@ header div.menu.full-width span {
 }
 .services .container .box i {
   padding: 10px;
-  border-radius: 50%;
   font-size: 3em;
-  color: var(--second-color);
-  background-color: white;
-  margin-bottom: 10px;
+  color: var(--main-color);
+  margin-bottom: 20px;
+  transition-duration: .3s;
 }
 .services .container .box:hover i { 
-  animation: 6s rotate-icon infinite forwards linear;
+  animation: .5s rotate-icon forwards ease-out;
+  transform: scale(1.3);
+  transition-delay: .5s;
+  
 } 
 @keyframes rotate-icon {
-  to {
-    transform: rotate(360deg);
+  0%,100% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1.3);
   }
 }
 .services .container .box h2 {
   color: white;
+  font-size: 2em;
+  pointer-events: none;
 }
 .services .container .box p {
   color: var(--background-color);
   margin: 20px 0;
+  pointer-events: none;
 }
 /* end services */
 /* start testimonial */
