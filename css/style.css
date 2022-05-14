@@ -1118,7 +1118,7 @@ header div.menu.full-width span {
   transition-duration:1s;
 }
 .items .container .swiper-slide.swiper-slide-active .card .image::before { 
-  background-color: rgba(var(--r),var(--g),var(--b),.4);
+  background-color: rgba(var(--r),var(--g),var(--b),.5);
 }
 
 .items .container .card .image .discrpition {
@@ -1140,11 +1140,26 @@ header div.menu.full-width span {
   object-fit: cover;
 }
 .items .container .card .image h3 {
- margin-bottom: 20px;
- font-size: 4em;
+ margin-bottom: 10px;
+ font-size: 3.5em;
 }
-.items .container .card .image p {
+.items .container .card .image .discrpition p:first-of-type {
   font-size: 2em;
+  margin-bottom: 20px;
+}
+.items .container .card .image .discrpition p:last-of-type {
+  font-size: 1.4em;
+  color: white;
+  background-color: white;
+  padding: 20px;
+  border-radius:80% 20% 80% 20% / 80% 20% 80% 20%;
+  font-weight: 500;
+  transition-duration:1.5s;
+  transition-timing-function: cubic-bezier(0.71, 0.51, 0.03, 0.91);
+}
+.items .container .swiper-slide.swiper-slide-active .card .image .discrpition p:last-of-type {
+  border-radius:40% 60% 40% 60% / 40% 60% 40% 60%;
+  color: var(--main-color);
 }
 .items .container .info {
   position: relative;
@@ -1161,7 +1176,7 @@ header div.menu.full-width span {
   height: 100%;
   right: -1px;
   width: 2.5em;
-  top: 0p;
+  top: 0;
   background-color: var(--second-color);
   border-radius: 30px 0  0 30px;
   z-index: -1;
@@ -1174,7 +1189,7 @@ header div.menu.full-width span {
   margin-left: 15px;
   color: white;
 }
-.items .container .info p {
+.items .container .info p{
   display: inline-block;
   font-size: 1.5em;
   font-weight: 700;
@@ -1182,44 +1197,36 @@ header div.menu.full-width span {
 }
 @media (max-width: 676px) {
   .items .container .info i { 
-    margin: 0 0 15px;
-  }
-  .items .container .card .image {
-    height: 90%;
+    margin: 0px 0 20px;
   }
   .items .container .card {
     flex-direction: column;;
   }
   .items .container .card .image {
-    flex-basis: 90%;;
+    height: 80%;
+  }
+  .items .container .card .image { 
   }
   .items .container .card .info {
     flex-direction: row;
     justify-content: space-around;
     width: 100%;
     padding: 5px 0 0 ;
+    height: 10%;
   }
   .items .container .info p {
     display:block; 
+    font-size: 1.1em;
   }
   .items .container .info::before {
     width: 100%;
     right: 0px;
-    height: 3.05em;
+    height: 100%;
     bottom: 3em;
     border-radius: 0 0px 30px 30px;
   }
   .items .container .info > * {
     text-align: center;
   }
-}
-.items .container .info .user {
-
-}
-.items .container .info .location {
-
-}
-.items .container .info .phone{
-
 }
 /* end items */
