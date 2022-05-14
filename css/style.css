@@ -1092,6 +1092,8 @@ header div.menu.full-width span {
 }
 .items .container {
   gap: 20px;
+  display: flex;
+  flex-direction: column;
 }
 .items .container .card {
   position: relative;
