@@ -50,3 +50,24 @@ window.addEventListener('click',function(event) {
     //     }
     // });
 });
+window.onscroll = () => {
+    document.querySelectorAll('body > *').forEach((ele) => {
+        if(ele.children[0] !== undefined) {
+            if(window.scrollY >= ele.offsetTop - 450 )
+            ele.children[0].classList.add('active-header');
+            else ele.children[0].classList.remove('active-header')
+        }
+    });
+    document.querySelectorAll('.subscribers .container .box').forEach((ele) => {
+        if(document.body.clientWidth <= 1200)
+            if(window.scrollY >= ele.parentElement.parentElement.offsetTop + ele.offsetTop - 100 )
+            ele.classList.add('show-info');
+            else ele.classList.remove('show-info')
+       else ele.classList.remove('show-info')
+        })
+        document.querySelectorAll('.stats .container .stat').forEach((ele) => {
+            if(window.scrollY >= ele.parentElement.parentElement.offsetTop + ele.offsetTop - 300 )
+            ele.classList.add('active-stat');
+            else ele.classList.remove('active-stat')
+        })
+}

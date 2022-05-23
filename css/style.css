@@ -113,7 +113,7 @@
     html { font-size: 14px; }
   }
   @media (max-width: 400px) {
-    html { font-size: 13px; }
+    html { font-size: 11px; }
   }
 :root {
   --main-color: #363062;
@@ -201,7 +201,7 @@ body {
   margin: 0px auto 70px;
   width: fit-content;
   cursor: context-menu;
-  transition-duration: .5s;
+  transition-duration: 1s;
   padding: 10px 40px;
 }
 .special-header.white-header {
@@ -211,12 +211,12 @@ body {
 .special-header.white-header::after {
   background-color: white;
 }
-.special-header.white-header:hover {
+.special-header.white-header.active-header{
   background-color: white;
   color: var(--main-color);
 
 }
-.special-header:hover {
+.special-header.active-header {
   background-color: var(--main-color);
   color: white;
 }
@@ -377,11 +377,6 @@ header div.menu.full-width span {
   transform: scale(0.1);
 }
 /* end header */
-
-
-
-
-
 /* start landing */
 .landing {
   position: relative;
@@ -392,7 +387,7 @@ header div.menu.full-width span {
 }
 .arrow-down {
   position: absolute;
-  top: 90vh;
+  top: 88vh;
   left: 50%;
   transform: translateX(-50%);
   width: 20px;
@@ -774,7 +769,7 @@ header div.menu.full-width span {
   padding: 0 40px;
   transition-duration: var(--popular-duration);
   transition-timing-function: cubic-bezier(0.25, 0.89, 0.59, 0.84);
-
+  min-height: 220px;
 }
 .testimonial .swiper .swiper-slide  i {
   font-size: 120px;
@@ -829,7 +824,7 @@ header div.menu.full-width span {
 }
 .testimonial .swiper .swiper-slide  p {
   color: var(--font-color);
-  margin: 25px auto;
+  margin: 35px auto;
   line-height: 2em;
 }
 
@@ -877,7 +872,7 @@ header div.menu.full-width span {
   border-radius: 75% 25% 25% 75% / 50% 50% 50% 50% ;
   z-index: -1;
 }
-.subscribers .container .box .info{
+.subscribers .container .box .info {
   width: 0%;
   height: 0%;
   position: absolute;
@@ -944,7 +939,6 @@ header div.menu.full-width span {
   width: 110%;
   height: 110%;
   border-right-width: 12px;
-  
 }
 @keyframes rot1 {
   0% {
@@ -961,6 +955,11 @@ header div.menu.full-width span {
   100% {
     transform: rotate(-360deg) translate(-50%,-50%);
   }
+}
+.subscribers .container .box.show-info .info { 
+  height: 102%;
+  width: 102%;
+  opacity: 1;
 }
 .subscribers .container .box:hover .info { 
   height: 102%;
@@ -1232,3 +1231,82 @@ header div.menu.full-width span {
   }
 }
 /* end items */
+
+/* start stats */
+.stats {
+  background-color: var(--main-color);
+  font-size: 1rem;
+}
+.stats .container {
+  position: relative;
+  justify-content: center;
+  flex-wrap: wrap;
+  z-index: 1;
+  gap: 20px;
+}
+.stats .container img {
+  width: 500px;
+  left: 90%;
+  display: none;
+  position: absolute;
+  z-index: -1009090;
+  opacity: .5;
+
+}
+.stats .container .stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding: 60px;
+  background-color: var(--second-color);
+  border-radius: 50%;
+  color: white;
+  width: 300px;
+  height: 300px;
+}
+.stats .container .stat::before {
+  content:'';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  border-right-style:  solid ;
+  border-top: 9px solid transparent;
+  border-radius: 50%;
+  transform-origin: left top;
+  width: 101%;
+  height: 100%;
+  border-right-color: var(--main-color);
+  border-right-width: 9px;
+  opacity: 0;
+}
+.stats .container .stat.active-stat::before {
+  animation: 2s rot2 infinite forwards linear;
+  opacity: 1;
+  transition-duration: var(--animation-duration);
+}
+@media (max-width: 992px) {
+  .stats .container {
+    flex-direction: column;
+  }
+}
+@media (max-width: 400px) {
+  .stats .container .stat { 
+    width: 200px;
+     height: 200px;
+  } 
+}
+.stats .container .stat i {
+  font-size: 4em;
+  margin-bottom: 10px;;
+  color: var(--main-color);
+}
+.stats .container .stat .counter {
+  font-size: 4em;
+}
+.stats .container .stat .desc {
+  color: var(--font-white);
+
+}
+/* end stats */
