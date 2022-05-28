@@ -1458,7 +1458,7 @@ footer .container .info > a {
   margin-bottom: 70px;
   display: block;
 }
-footer .container  > a::first-letter {
+footer .container .info  > a::first-letter {
   color: var(--second-color);
 }
 footer .container  .list {
