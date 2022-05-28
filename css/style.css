@@ -1299,7 +1299,7 @@ header div.menu.full-width span {
     flex-direction: column;
   }
 }
-@media (max-width: 400px) {
+@media (max-width: 440px) {
   .stats .container .stat {
     width: 200px;
     height: 200px;
